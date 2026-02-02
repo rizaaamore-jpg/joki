@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EliteBoost - Joki Gaming Profesional</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Orbitron:wght@500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
+</head>
+<body>
+    <!-- Header & Navigation -->
+    <header>
+        <div class="container">
+            <nav class="navbar">
+                <div class="logo">
+                    <i class="fas fa-crown"></i>
+                    <span>EliteBoost</span>
+                </div>
+                
+                <ul class="nav-links">
+                    <li><a href="#home">Beranda</a></li>
+                    <li><a href="#games">Layanan</a></li>
+                    <li><a href="#pricing">Harga</a></li>
+                    <li><a href="#testimonials">Testimoni</a></li>
+                    <li><a href="#howto">Cara Order</a></li>
+                    <li><a href="#contact">Kontak</a></li>
+                    <li><a href="admin.html" class="admin-link"><i class="fas fa-user-shield"></i> Admin</a></li>
+                </ul>
+                
+                <div class="nav-actions">
+                    <a href="login.html" class="btn btn-secondary"><i class="fas fa-sign-in-alt"></i> Login</a>
+                    <a href="order.html" class="btn btn-primary"><i class="fas fa-gamepad"></i> Order Now</a>
+                </div>
+                
+                <div class="mobile-menu-btn">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-bg">
+            <div class="particles"></div>
+        </div>
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <h1 data-text="BOOST RANK ANDA">BOOST RANK ANDA</h1>
+                    <h2>Ke Level <span class="typing-text">Mythic</span></h2>
+                    <p>Dengan joki profesional kami, capai rank impian Anda dalam waktu singkat. Layanan aman, cepat, dan terpercaya dengan garansi uang kembali!</p>
+                    <div class="hero-stats">
+                        <div class="stat">
+                            <h3>2,500+</h3>
+                            <p>Pesanan Selesai</p>
+                        </div>
+                        <div class="stat">
+                            <h3>98%</h3>
+                            <p>Kepuasan Pelanggan</p>
+                        </div>
+                        <div class="stat">
+                            <h3>24/7</h3>
+                            <p>Support Online</p>
+                        </div>
+                    </div>
+                    <div class="hero-buttons">
+                        <a href="order.html" class="btn btn-primary btn-lg">
+                            <i class="fas fa-rocket"></i> Pesan Sekarang
+                        </a>
+                        <a href="#games" class="btn btn-secondary btn-lg">
+                            <i class="fas fa-eye"></i> Lihat Layanan
+                        </a>
+                    </div>
+                </div>
+                <div class="hero-image">
+                    <div class="floating-card">
+                        <div class="game-icons">
+                            <div class="game-icon active" data-game="ml">
+                                <img src="https://img.icons8.com/color/96/000000/mobile-legends.png" alt="ML">
+                            </div>
+                            <div class="game-icon" data-game="ff">
+                                <img src="https://img.icons8.com/color/96/000000/garena-free-fire.png" alt="Free Fire">
+                            </div>
+                            <div class="game-icon" data-game="fish">
+                                <img src="https://img.icons8.com/color/96/000000/fishing.png" alt="Fishing">
+                            </div>
+                        </div>
+                        <div class="order-preview">
+                            <h3>Order Preview</h3>
+                            <div class="preview-content">
+                                <p><strong>Game:</strong> <span id="preview-game">Mobile Legends</span></p>
+                                <p><strong>Layanan:</strong> <span id="preview-service">Rank Up Mythic</span></p>
+                                <p><strong>Harga:</strong> <span id="preview-price">Rp 140.000</span></p>
+                                <p><strong>Estimasi:</strong> <span id="preview-time">1-4 Hari</span></p>
+                            </div>
+                            <button class="btn btn-primary btn-block" onclick="location.href='order.html'">
+                                <i class="fas fa-shopping-cart"></i> Order Sekarang
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Games Section -->
+    <section class="games" id="games">
+        <div class="container">
+            <h2 class="section-title">Layanan <span>Joki</span> Profesional</h2>
+            <p class="section-subtitle">Kami menawarkan berbagai layanan boosting untuk game-game populer</p>
+            
+            <div class="game-tabs">
+                <button class="game-tab active" data-game="ml">
+                    <i class="fas fa-mobile-alt"></i> Mobile Legends
+                </button>
+                <button class="game-tab" data-game="ff">
+                    <i class="fas fa-fire"></i> Free Fire
+                </button>
+                <button class="game-tab" data-game="fish">
+                    <i class="fas fa-fish"></i> Fishing Games
+                </button>
+            </div>
+            
+            <div class="game-content active" id="ml-content">
+                <div class="service-cards">
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <i class="fas fa-chart-line"></i>
+                        </div>
+                        <h3>Rank Boosting</h3>
+                        <ul>
+                            <li>Epic → Legend: Rp 70.000</li>
+                            <li>Legend → Mythic: Rp 100.000</li>
+                            <li>Mythic 0 → 600 pts: Rp 170.000</li>
+                            <li>Mythic Glory: Rp 200.000</li>
+                        </ul>
+                        <button class="btn-service" data-service="Rank Boosting ML">Pilih Layanan</button>
+                    </div>
+                    
+                    <div class="service-card featured">
+                        <div class="badge">POPULER</div>
+                        <div class="service-icon">
+                            <i class="fas fa-trophy"></i>
+                        </div>
+                        <h3>Winrate Boosting</h3>
+                        <ul>
+                            <li>WR 40% → 60%: Rp 100.000</li>
+                            <li>WR 50% → 70%: Rp 150.000</li>
+                            <li>WR 60% → 80%: Rp 250.000</li>
+                            <li>Custom WR: Rp 50.000/10%</li>
+                        </ul>
+                        <button class="btn-service" data-service="Winrate Boosting ML">Pilih Layanan</button>
+                    </div>
+                    
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <h3>Magic Chess</h3>
+                        <ul>
+                            <li>Grandmaster → Epic: Rp 80.000</li>
+                            <li>Epic → Legend: Rp 120.000</li>
+                            <li>Legend → Mythic: Rp 180.000</li>
+                            <li>Top 3 Guarantee: +Rp 50.000</li>
+                        </ul>
+                        <button class="btn-service" data-service="Magic Chess ML">Pilih Layanan</button>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="game-content" id="ff-content">
+                <div class="service-cards">
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <i class="fas fa-arrow-up"></i>
+                        </div>
+                        <h3>Rank Boosting FF</h3>
+                        <ul>
+                            <li>Gold → Platinum: Rp 30.000</li>
+                            <li>Platinum → Diamond: Rp 50.000</li>
+                            <li>Diamond → Heroic: Rp 80.000</li>
+                            <li>Heroic → Grandmaster: Rp 300.000</li>
+                        </ul>
+                        <button class="btn-service" data-service="Rank Boosting FF">Pilih Layanan</button>
+                    </div>
+                    
+                    <div class="service-card featured">
+                        <div class="badge">TERLARIS</div>
+                        <div class="service-icon">
+                            <i class="fas fa-crosshairs"></i>
+                        </div>
+                        <h3>KD Boosting</h3>
+                        <ul>
+                            <li>KD 1.0 → 2.0: Rp 75.000</li>
+                            <li>KD 2.0 → 3.0: Rp 120.000</li>
+                            <li>KD 3.0 → 4.0: Rp 180.000</li>
+                            <li>KD 4.0 → 5.0: Rp 250.000</li>
+                        </ul>
+                        <button class="btn-service" data-service="KD Boosting FF">Pilih Layanan</button>
+                    </div>
+                    
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <i class="fas fa-medal"></i>
+                        </div>
+                        <h3>Clan Boosting</h3>
+                        <ul>
+                            <li>Clan Level Up: Rp 100.000/level</li>
+                            <li>Clan War Win: Rp 50.000/match</li>
+                            <li>Clan Rank Top 100: Rp 500.000</li>
+                            <li>Full Clan Management: Rp 1.000.000</li>
+                        </ul>
+                        <button class="btn-service" data-service="Clan Boosting FF">Pilih Layanan</button>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="game-content" id="fish-content">
+                <div class="service-cards">
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <i class="fas fa-level-up-alt"></i>
+                        </div>
+                        <h3>Level Boosting</h3>
+                        <ul>
+                            <li>Level 1-50: Rp 100.000</li>
+                            <li>Level 50-100: Rp 200.000</li>
+                            <li>Level 100-150: Rp 300.000</li>
+                            <li>Max Level: Rp 500.000</li>
+                        </ul>
+                        <button class="btn-service" data-service="Level Boosting Fishing">Pilih Layanan</button>
+                    </div>
+                    
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <i class="fas fa-coins"></i>
+                        </div>
+                        <h3>Currency Farming</h3>
+                        <ul>
+                            <li>5M Gold: Rp 25.000</li>
+                            <li>20M Gold: Rp 40.000</li>
+                            <li>30M Gold: Rp 75.000</li>
+                            <li>50M Gold: Rp 120.000</li>
+                        </ul>
+                        <button class="btn-service" data-service="Currency Farming Fishing">Pilih Layanan</button>
+                    </div>
+                    
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <i class="fas fa-award"></i>
+                        </div>
+                        <h3>Rare Items</h3>
+                        <ul>
+                            <li>Legendary Rod: Rp 150.000</li>
+                            <li>All Rare Fish: Rp 300.000</li>
+                            <li>Full Equipment: Rp 500.000</li>
+                            <li>Complete Achievements: Rp 250.000</li>
+                        </ul>
+                        <button class="btn-service" data-service="Rare Items Fishing">Pilih Layanan</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How to Order -->
+    <section class="howto" id="howto">
+        <div class="container">
+            <h2 class="section-title">Cara <span>Order</span></h2>
+            <p class="section-subtitle">4 Langkah mudah untuk meningkatkan rank Anda</p>
+            
+            <div class="steps">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <div class="step-icon">
+                        <i class="fas fa-clipboard-list"></i>
+                    </div>
+                    <h3>Pilih Layanan</h3>
+                    <p>Pilih game dan layanan yang Anda inginkan dari daftar kami</p>
+                </div>
+                
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <div class="step-icon">
+                        <i class="fas fa-credit-card"></i>
+                    </div>
+                    <h3>Bayar</h3>
+                    <p>Lakukan pembayaran via transfer bank, e-wallet, atau QRIS</p>
+                </div>
+                
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <div class="step-icon">
+                        <i class="fas fa-user-shield"></i>
+                    </div>
+                    <h3>Berikan Akses</h3>
+                    <p>Berikan ID dan password akun game Anda secara aman</p>
+                </div>
+                
+                <div class="step">
+                    <div class="step-number">4</div>
+                    <div class="step-icon">
+                        <i class="fas fa-trophy"></i>
+                    </div>
+                    <h3>Tunggu Hasil</h3>
+                    <p>Joki kami akan bekerja dan rank Anda akan meningkat</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="testimonials" id="testimonials">
+        <div class="container">
+            <h2 class="section-title">Testimoni <span>Pelanggan</span></h2>
+            <p class="section-subtitle">Apa kata mereka tentang layanan kami</p>
+            
+            <div class="testimonial-slider">
+                <div class="testimonial-card">
+                    <div class="testimonial-header">
+                        <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="User">
+                        <div class="user-info">
+                            <h4>Zahran Lestaluhu</h4>
+                            <p>Mobile Legends Player</p>
+                        </div>
+                        <div class="rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                    </div>
+                    <p class="testimonial-text">
+                        "Rank saya naik dari Epic ke Mythic dalam 3 hari! Pelayanan cepat dan hasil memuaskan. Recommended banget!"
+                    </p>
+                </div>
+                
+                <div class="testimonial-card">
+                    <div class="testimonial-header">
+                        <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="User">
+                        <div class="user-info">
+                            <h4>Rama Adi</h4>
+                            <p>Free Fire Player</p>
+                        </div>
+                        <div class="rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star-half-alt"></i>
+                        </div>
+                    </div>
+                    <p class="testimonial-text">
+                        "KD saya naik dari 1.5 jadi 3.8 dalam seminggu. Jokinya profesional banget dan selalu update progress."
+                    </p>
+                </div>
+                
+                <div class="testimonial-card">
+                    <div class="testimonial-header">
+                        <img src="https://randomuser.me/api/portraits/men/65.jpg" alt="User">
+                        <div class="user-info">
+                            <h4>Rifky Pratama</h4>
+                            <p>Fishing Game Player</p>
+                        </div>
+                        <div class="rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                    </div>
+                    <p class="testimonial-text">
+                        "Dapat semua ikan legendary dalam 2 hari! Layanan super cepat dan harga terjangkau. Puas banget!"
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="contact">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <div class="logo">
+                        <i class="fas fa-crown"></i>
+                        <span>EliteBoost</span>
+                    </div>
+                    <p>Jasa joki gaming profesional terpercaya sejak 2024. Tingkatkan rank Anda dengan joki berpengalaman kami.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-whatsapp"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-discord"></i></a>
+                        <a href="#"><i class="fab fa-telegram"></i></a>
+                        <a href="#"><i class="fab fa-tiktok"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Layanan</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">Joki Mobile Legends</a></li>
+                        <li><a href="#">Joki Free Fire</a></li>
+                        <li><a href="#">Joki Fishing Game</a></li>
+                        <li><a href="#">Top Up Diamond</a></li>
+                        <li><a href="#">Akun Boosting</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Perusahaan</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">Tentang Kami</a></li>
+                        <li><a href="#">Blog & Artikel</a></li>
+                        <li><a href="#">Kebijakan Privasi</a></li>
+                        <li><a href="#">Syarat & Ketentuan</a></li>
+                        <li><a href="#">FAQ</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Kontak Kami</h3>
+                    <ul class="footer-links">
+                        <li><i class="fas fa-map-marker-alt"></i> Jakarta, Indonesia</li>
+                        <li><i class="fas fa-phone"></i> +62 819-3299-9602</li>
+                        <li><i class="fas fa-envelope"></i> support@eliteboost.com</li>
+                        <li><i class="fas fa-clock"></i> Buka 24/7</li>
+                    </ul>
+                    <div class="payment-methods">
+                        <h4>Pembayaran:</h4>
+                        <div class="payment-icons">
+                            <i class="fab fa-cc-visa"></i>
+                            <i class="fab fa-cc-mastercard"></i>
+                            <i class="fab fa-cc-paypal"></i>
+                            <i class="fas fa-qrcode"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>&copy; 2024 EliteBoost. All rights reserved. | Jasa Joki Gaming Profesional</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Order Modal -->
+    <div class="modal" id="orderModal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <h3>Pilih Layanan</h3>
+            <form id="orderForm">
+                <div class="form-group">
+                    <label for="game">Pilih Game:</label>
+                    <select id="game" name="game" required>
+                        <option value="">-- Pilih Game --</option>
+                        <option value="Mobile Legends">Mobile Legends</option>
+                        <option value="Free Fire">Free Fire</option>
+                        <option value="Fishing Game">Fishing Game</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="service">Layanan:</label>
+                    <select id="service" name="service" required>
+                        <option value="">-- Pilih Layanan --</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="currentRank">Rank/Level Saat Ini:</label>
+                    <input type="text" id="currentRank" name="currentRank" required>
+                </div>
+                <div class="form-group">
+                    <label for="targetRank">Target Rank/Level:</label>
+                    <input type="text" id="targetRank" name="targetRank" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="whatsapp">WhatsApp:</label>
+                    <input type="tel" id="whatsapp" name="whatsapp" required>
+                </div>
+                <button type="submit" class="btn btn-primary btn-block">Lanjutkan Pembayaran</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- JavaScript -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="script.js"></script>
+</body>
+</html>
