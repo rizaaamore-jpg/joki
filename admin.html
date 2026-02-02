@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard - EliteBoost</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
+    <link rel="stylesheet" href="admin-style.css">
+</head>
+<body>
+    <!-- Admin Sidebar -->
+    <div class="admin-container">
+        <aside class="sidebar">
+            <div class="logo">
+                <i class="fas fa-crown"></i>
+                <h2>EliteBoost<span>Admin</span></h2>
+            </div>
+            
+            <nav class="sidebar-nav">
+                <ul>
+                    <li class="active"><a href="#"><i class="fas fa-tachometer-alt"></i> Dashboard</a></li>
+                    <li><a href="#orders"><i class="fas fa-shopping-cart"></i> Orders <span class="badge" id="order-count">0</span></a></li>
+                    <li><a href="#transactions"><i class="fas fa-money-bill-wave"></i> Transactions</a></li>
+                    <li><a href="#customers"><i class="fas fa-users"></i> Customers</a></li>
+                    <li><a href="#services"><i class="fas fa-gamepad"></i> Services</a></li>
+                    <li><a href="#analytics"><i class="fas fa-chart-bar"></i> Analytics</a></li>
+                    <li><a href="#settings"><i class="fas fa-cog"></i> Settings</a></li>
+                </ul>
+            </nav>
+            
+            <div class="user-profile">
+                <img src="https://randomuser.me/api/portraits/men/75.jpg" alt="Admin">
+                <div class="user-info">
+                    <h4>Admin Elite</h4>
+                    <p>Super Admin</p>
+                </div>
+                <a href="login.html?logout=true" class="logout-btn">
+                    <i class="fas fa-sign-out-alt"></i>
+                </a>
+            </div>
+        </aside>
+        
+        <!-- Main Content -->
+        <main class="main-content">
+            <header class="admin-header">
+                <div class="header-left">
+                    <h1>Dashboard Overview</h1>
+                    <p>Welcome back, Admin! Here's what's happening today.</p>
+                </div>
+                <div class="header-right">
+                    <div class="search-box">
+                        <i class="fas fa-search"></i>
+                        <input type="text" placeholder="Search orders, customers...">
+                    </div>
+                    <div class="notifications">
+                        <i class="fas fa-bell"></i>
+                        <span class="badge">3</span>
+                    </div>
+                    <div class="date-display">
+                        <span id="current-date"></span>
+                    </div>
+                </div>
+            </header>
+            
+            <!-- Stats Cards -->
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-icon total-orders">
+                        <i class="fas fa-shopping-cart"></i>
+                    </div>
+                    <div class="stat-info">
+                        <h3>Total Orders</h3>
+                        <p class="stat-number" id="total-orders">0</p>
+                        <p class="stat-change"><i class="fas fa-arrow-up"></i> 12% from last month</p>
+                    </div>
+                </div>
+                
+                <div class="stat-card">
+                    <div class="stat-icon revenue">
+                        <i class="fas fa-money-bill-wave"></i>
+                    </div>
+                    <div class="stat-info">
+                        <h3>Total Revenue</h3>
+                        <p class="stat-number" id="total-revenue">Rp 0</p>
+                        <p class="stat-change"><i class="fas fa-arrow-up"></i> 18% from last month</p>
+                    </div>
+                </div>
+                
+                <div class="stat-card">
+                    <div class="stat-icon customers">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <div class="stat-info">
+                        <h3>Total Customers</h3>
+                        <p class="stat-number" id="total-customers">0</p>
+                        <p class="stat-change"><i class="fas fa-arrow-up"></i> 7% from last month</p>
+                    </div>
+                </div>
+                
+                <div class="stat-card">
+                    <div class="stat-icon pending">
+                        <i class="fas fa-clock"></i>
+                    </div>
+                    <div class="stat-info">
+                        <h3>Pending Orders</h3>
+                        <p class="stat-number" id="pending-orders">0</p>
+                        <p class="stat-change"><i class="fas fa-exclamation-circle"></i> Need attention</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Recent Orders Table -->
+            <div class="content-section">
+                <div class="section-header">
+                    <h2>Recent Orders</h2>
+                    <div class="section-actions">
+                        <button class="btn btn-primary" onclick="exportOrders()">
+                            <i class="fas fa-download"></i> Export
+                        </button>
+                        <button class="btn btn-secondary" onclick="refreshOrders()">
+                            <i class="fas fa-sync-alt"></i> Refresh
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="table-container">
+                    <table id="orders-table">
+                        <thead>
+                            <tr>
+                                <th>Order ID</th>
+                                <th>Customer</th>
+                                <th>Game</th>
+                                <th>Service</th>
+                                <th>Amount</th>
+                                <th>Status</th>
+                                <th>Date</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="orders-table-body">
+                            <!-- Orders will be loaded here -->
+                        </tbody>
+                    </table>
+                </div>
+                
+                <div class="table-footer">
+                    <div class="pagination">
+                        <button class="page-btn" onclick="changePage(-1)"><i class="fas fa-chevron-left"></i></button>
+                        <span id="current-page">1</span>
+                        <button class="page-btn" onclick="changePage(1)"><i class="fas fa-chevron-right"></i></button>
+                    </div>
+                    <div class="table-info">
+                        Showing <span id="showing-count">0</span> of <span id="total-count">0</span> orders
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Quick Stats -->
+            <div class="content-row">
+                <div class="content-col">
+                    <div class="chart-container">
+                        <h3>Orders by Game</h3>
+                        <canvas id="gameChart"></canvas>
+                    </div>
+                </div>
+                <div class="content-col">
+                    <div class="chart-container">
+                        <h3>Revenue Trend</h3>
+                        <canvas id="revenueChart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+    
+    <!-- Order Detail Modal -->
+    <div class="modal" id="orderDetailModal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <h3>Order Details</h3>
+            <div class="order-details" id="order-details">
+                <!-- Order details will be loaded here -->
+            </div>
+        </div>
+    </div>
+    
+    <!-- JavaScript -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="admin-script.js"></script>
+</body>
+</html>
